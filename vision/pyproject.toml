@@ -1,0 +1,11 @@
+[project]
+name = "krossmark-vision"
+version = "0.1.0"
+dependencies = [
+    "ultralytics",
+    "opencv-python",
+    "numpy",
+    "scipy",
+    "filterpy",
+    "requests"
+]
