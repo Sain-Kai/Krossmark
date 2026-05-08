@@ -1,0 +1,1 @@
+{"source": "node2", "burst_id": "52571b48-ef0a-4e7b-bc58-b1f1ee91d283", "ts": 1775139138.4835536, "note": "relay trigger from Pi", "trigger_id": "6b31d977-666a-4247-ac65-943a789fd879", "sensor_data": {"adxl": {"x": -0.004, "y": 0.084, "z": 0.912, "magnitude": 0.915869}, "fsr": {"raw": 0, "resistance": 1000000000.0, "force_g": 0}}}

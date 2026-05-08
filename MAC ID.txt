@@ -1,0 +1,3 @@
+ESP32-2A(Sensors) MAC Address : F0:24:F9:45:48:AC
+ESP32-2B(Camera) MAC Address: 
+ESP32-1(Trigger) MAC Address: 8C:4F:00:10:F6:5C
