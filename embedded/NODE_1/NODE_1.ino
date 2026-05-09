@@ -4,13 +4,10 @@
 #include <Wire.h>
 #include <math.h>
 
-// ── RECEIVER MAC (Node2) ───────────────
 uint8_t SENSOR_MAC[] = {0xF0, 0x24, 0xF9, 0x45, 0x48, 0xAC};
 
-// ── CHANNEL ────────────────────────────
 #define WIFI_CHANNEL 6
 
-// ── PINS ───────────────────────────────
 const int IR1_PIN = 27;
 const int IR2_PIN = 26;
 const int LED_PIN = 2;
@@ -20,27 +17,22 @@ const int SDA_PIN = 33;
 const int SCL_PIN = 32;
 const int ADXL_ADDR = 0x53;
 
-// ── TIMING ─────────────────────────────
 const unsigned long COOLDOWN_MS = 3000;
 
-// ── SENSITIVITY ────────────────────────
 const float DELTA_THRESHOLD = 0.07;
 const float SHOCK_THRESHOLD = 1.5;
 
 unsigned long lastFired = 0;
 
-// ── PACKET ─────────────────────────────
 typedef struct {
   uint8_t trigger;
 } TriggerPacket;
 
-// ── SEND CALLBACK (ESP32 core v3.x) ────
 void onSent(const wifi_tx_info_t *info, esp_now_send_status_t status) {
   Serial.print("[SEND STATUS] ");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "SUCCESS" : "FAIL");
 }
 
-// ── ADXL ───────────────────────────────
 void adxl_write(byte reg, byte val) {
   Wire.beginTransmission(ADXL_ADDR);
   Wire.write(reg);
@@ -50,8 +42,8 @@ void adxl_write(byte reg, byte val) {
 
 void adxl_init() {
   Wire.begin(SDA_PIN, SCL_PIN);
-  adxl_write(0x2D, 0x08); // POWER_CTL
-  adxl_write(0x31, 0x09); // DATA_FORMAT
+  adxl_write(0x2D, 0x08);
+  adxl_write(0x31, 0x09); 
 }
 
 float adxl_magnitude() {
